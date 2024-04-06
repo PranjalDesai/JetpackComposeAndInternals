@@ -17,15 +17,13 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun SocialNetworkUser(name: String, location: String, onFollow: () -> Unit) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-            Column() {
-                Text(text = name)
-                Text(text = location)
-            }
-            Button(onClick = onFollow, Modifier.padding(start = 8.dp)) {
-                Text(text = "Follow")
-            }
+    Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+        Column() {
+            Text(text = name)
+            Text(text = location)
+        }
+        Button(onClick = onFollow, Modifier.padding(start = 8.dp)) {
+            Text(text = "Follow")
         }
     }
 }
