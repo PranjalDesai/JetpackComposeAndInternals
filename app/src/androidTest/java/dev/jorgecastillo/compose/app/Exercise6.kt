@@ -38,7 +38,20 @@ import dev.jorgecastillo.compose.app.ui.theme.ComposeAndInternalsTheme
  */
 fun Modifier.circledRainbowBorder(strokeWidth: Float): Modifier =
     drawWithContent {
+        drawCircle(color = Color.White, radius = size.width / 2 - strokeWidth)
+        drawContent()
+        drawCircle(
+            brush = Brush.linearGradient(listOf(Color.Magenta, Color.Cyan)),
+            radius = (size.width / 2) - strokeWidth,
+            style = Stroke(strokeWidth)
+        )
+    }
 
+fun Modifier.circledRainbowBorderPranjal(strokeWidth: Float): Modifier =
+    drawWithContent {
+        drawCircle(brush = Brush.linearGradient(listOf(Color.Magenta, Color.Cyan)), radius = (size.width/2))
+        drawCircle(color = Color.White, radius = size.width/2 -strokeWidth)
+        drawContent()
     }
 
 @Preview
@@ -46,7 +59,25 @@ fun Modifier.circledRainbowBorder(strokeWidth: Float): Modifier =
 private fun CircledRainbowBorderPreview() {
     ComposeAndInternalsTheme {
         Box(Modifier.padding(16.dp)) {
-            Box(Modifier.circledRainbowBorder(12f).padding(36.dp)) {
+            Box(
+                Modifier
+                    .circledRainbowBorder(12f)
+                    .padding(36.dp)) {
+                Text("Hey")
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun CircledRainbowBorderPranjalPreview() {
+    ComposeAndInternalsTheme {
+        Box(Modifier.padding(16.dp)) {
+            Box(
+                Modifier
+                    .circledRainbowBorderPranjal(12f)
+                    .padding(36.dp)) {
                 Text("Hey")
             }
         }
