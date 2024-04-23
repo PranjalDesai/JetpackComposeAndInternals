@@ -18,10 +18,10 @@ import androidx.compose.ui.viewinterop.AndroidView
 import dev.jorgecastillo.compose.app.ui.theme.ComposeAndInternalsTheme
 
 @Composable
-fun PPUICardviewInCompose() {
+fun CustomCardviewInCompose() {
     AndroidView(
         factory = {
-            // instead of cardview we can use PPUICardView
+            // instead of cardview we can use CustomCardView
             CardView(it).apply {
                 this.addView(ComposeView(this.context).apply {
                     this.setContent {
@@ -62,6 +62,6 @@ fun CardContents() {
 @Preview(showBackground = true)
 private fun PPUICardviewInComposePreview() {
     ComposeAndInternalsTheme {
-        PPUICardviewInCompose()
+        CustomCardviewInCompose()
     }
 }
