@@ -6,6 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -41,6 +42,27 @@ fun ComposeAndInternalsTheme(
 
     MaterialTheme(
         colors = colors,
+        typography = Typography,
+        shapes = Shapes,
+        content = content
+    )
+}
+
+private val TicketLightColorPalette = lightColors(
+    primary = Color(0xFF036BDE),
+    primaryVariant = Color(0xFF045EC7),
+    secondary = Teal200,
+    surface = Color.White,
+    background = Color(0xFFFAFAFA),
+)
+
+
+@Composable
+fun TicketTheme(
+    content: @Composable () -> Unit
+) {
+    MaterialTheme(
+        colors = TicketLightColorPalette,
         typography = Typography,
         shapes = Shapes,
         content = content
